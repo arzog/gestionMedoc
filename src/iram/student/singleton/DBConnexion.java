@@ -13,10 +13,12 @@ public class DBConnexion {
         String user = "phpMyAdmin";
         String pswd = "phpMyAdmin";
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, user, pswd);
+            System.out.println("connection OK");
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Erreur lors de l'initialisation de la connexion");
+            System.out.println(e);
         }
     }
 
