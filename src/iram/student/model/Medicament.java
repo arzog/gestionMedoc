@@ -8,7 +8,7 @@ public class Medicament {
     private double prix;
     private int quantite_boite;
     private String unite;
-    private String type;
+    private String type; // <-- change to ENUM
     private String urlDoc;
     //endregion
 
