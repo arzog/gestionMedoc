@@ -1,14 +1,15 @@
-package iram.student.dao;
+package iram.student.patterns;
 
-import iram.student.dao.impl.DaoClient;
-import iram.student.dao.impl.DaoFacture;
-import iram.student.dao.impl.DaoMedicament;
-import iram.student.dao.impl.DaoUser;
+import iram.student.patterns.dao.Dao;
+import iram.student.patterns.dao.impl.DaoClient;
+import iram.student.patterns.dao.impl.DaoFacture;
+import iram.student.patterns.dao.impl.DaoMedicament;
+import iram.student.patterns.dao.impl.DaoUser;
 import iram.student.model.Client;
 import iram.student.model.Facture;
 import iram.student.model.Medicament;
 import iram.student.model.User;
-import iram.student.singleton.DBConnexion;
+import iram.student.patterns.singleton.DBConnexion;
 
 import java.sql.Connection;
 

@@ -1,4 +1,4 @@
-package iram.student.singleton;
+package iram.student.patterns.singleton;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,8 +1,6 @@
 package iram.student;
 
-import iram.student.dao.Factory;
-import iram.student.dao.impl.DaoClient;
-import iram.student.singleton.DBConnexion;
+import iram.student.patterns.singleton.DBConnexion;
 
 public class Main {
 

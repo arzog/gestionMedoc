@@ -1,5 +1,8 @@
 package iram.student.model;
 
+import iram.student.enums.TypeMedic;
+import iram.student.enums.UniteMedic;
+
 public class Medicament {
     //region variable
     private int id;
@@ -7,12 +10,12 @@ public class Medicament {
     private int concentration;
     private double prix;
     private int quantite_boite;
-    private String unite;
-    private String type; // <-- change to ENUM
+    private UniteMedic unite; // <-- change to ENUM
+    private TypeMedic type; // <-- change to ENUM
     private String urlDoc;
     //endregion
 
-    public Medicament(int id, String nom, int concentration, double prix, int quantite_boite, String unite, String type, String urlDoc) {
+    public Medicament(int id, String nom, int concentration, double prix, int quantite_boite, UniteMedic unite, TypeMedic type, String urlDoc) {
         this.id = id;
         this.nom = nom;
         this.concentration = concentration;
@@ -39,10 +42,10 @@ public class Medicament {
     public int getQuantite_boite() {
         return quantite_boite;
     }
-    public String getUnite() {
+    public UniteMedic getUnite() {
         return unite;
     }
-    public String getType() {
+    public TypeMedic getType() {
         return type;
     }
     public String getUrlDoc() {
@@ -63,10 +66,10 @@ public class Medicament {
     public void setQuantite_boite(int quantite_boite) {
         this.quantite_boite = quantite_boite;
     }
-    public void setUnite(String unite) {
+    public void setUnite(UniteMedic unite) {
         this.unite = unite;
     }
-    public void setType(String type) {
+    public void setType(TypeMedic type) {
         this.type = type;
     }
     public void setUrlDoc(String urlDoc) {

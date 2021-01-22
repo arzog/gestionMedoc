@@ -1,6 +1,6 @@
-package iram.student.dao.impl;
+package iram.student.patterns.dao.impl;
 
-import iram.student.dao.Dao;
+import iram.student.patterns.dao.Dao;
 import iram.student.model.Medicament;
 
 import java.sql.Connection;

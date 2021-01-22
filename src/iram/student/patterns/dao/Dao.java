@@ -1,4 +1,4 @@
-package iram.student.dao;
+package iram.student.patterns.dao;
 
 import java.sql.Connection;
 import java.util.List;
