@@ -39,6 +39,8 @@ public class DaoClient extends Dao<Client> {
 
             statement.executeUpdate();
             statement.close();
+
+            System.out.println("/n INSERT : insert went well");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -70,6 +72,8 @@ public class DaoClient extends Dao<Client> {
 
             statement.executeUpdate();
             statement.close();
+
+            System.out.println("/n UPDATE : udpate went well");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -77,7 +81,17 @@ public class DaoClient extends Dao<Client> {
     }
     @Override
     public boolean delete(Client client) {
-        return false;
+        try{
+            PreparedStatement statement = conn.prepareStatement(
+                    "delete from client where id = ?;"
+            );
+            statement.setInt(1,client.getId());
+            statement.executeUpdate();
+            System.out.println("/n DELETE : delete went well");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return true;
     }
     @Override
     public Client select(int id) {
