@@ -12,9 +12,19 @@ public class Client {
     private int cp;
     private boolean actif;
     //endregion
-
     public Client(int id, String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
         this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pays = pays;
+        this.ville = ville;
+        this.rue = rue;
+        this.num = num;
+        this.cp = cp;
+        this.actif = actif;
+    }
+
+    public Client(String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
         this.nom = nom;
         this.prenom = prenom;
         this.pays = pays;
@@ -96,4 +106,19 @@ public class Client {
         this.actif = actif;
     }
     //endregion
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", pays='" + pays + '\'' +
+                ", ville='" + ville + '\'' +
+                ", rue='" + rue + '\'' +
+                ", num='" + num + '\'' +
+                ", cp=" + cp +
+                ", actif=" + actif +
+                '}';
+    }
 }
