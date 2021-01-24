@@ -9,6 +9,7 @@ public class User {
     private int lienClient;
     //endregion
 
+    //region constructor
     public User(int id, String username, String pswd, String mail, int lienClient) {
         this.id = id;
         this.username = username;
@@ -16,6 +17,14 @@ public class User {
         this.mail = mail;
         this.lienClient = lienClient;
     }
+
+    public User(String username, String pswd, String mail, int lienClient) {
+        this.username = username;
+        this.pswd = pswd;
+        this.mail = mail;
+        this.lienClient = lienClient;
+    }
+    //endregion
 
     //region getter
     public int getId() {
@@ -49,4 +58,15 @@ public class User {
         this.lienClient = lienClient;
     }
     //endregion
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", pswd='" + pswd + '\'' +
+                ", mail='" + mail + '\'' +
+                ", lienClient=" + lienClient +
+                '}';
+    }
 }

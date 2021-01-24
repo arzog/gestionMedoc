@@ -1,6 +1,7 @@
 package iram.student;
 
 import iram.student.tests.DaoClientTest;
+import iram.student.tests.DaoUserTest;
 
 public class Main {
 
@@ -11,6 +12,9 @@ public class Main {
 
         //Tests Dao client
         //DaoClientTest.testDaoClient();
+
+        //Tests Dao user
+        //DaoUserTest.testUserDao();
 
     }
 }

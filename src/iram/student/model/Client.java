@@ -12,6 +12,8 @@ public class Client {
     private int cp;
     private boolean actif;
     //endregion
+
+    //region constructor
     public Client(int id, String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
         this.id = id;
         this.nom = nom;
@@ -34,6 +36,7 @@ public class Client {
         this.cp = cp;
         this.actif = actif;
     }
+    //endregion
 
     //region getter
     public int getId() {
