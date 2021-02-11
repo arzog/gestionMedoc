@@ -1,26 +1,27 @@
 package iram.student.tests;
 
+import iram.student.enums.RoleUser;
 import iram.student.model.User;
 import iram.student.patterns.Factory;
 import iram.student.patterns.dao.Dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DaoUserTest {
-    private static Dao<User> userDao = Factory.getDaoUser();
-    private static List<User> users = new ArrayList<>();
-    private static User francois = new User("french","14121988","francois.beumier@hotmail.fr",3);
+    private final static Dao<User> userDao = Factory.getDaoUser();
+    private static User francois = new User(RoleUser.USER,"french","14121988","francois.beumier@hotmail.fr",3);
 
     public static void testUserDao(){
         //region select *
-        users = userDao.selectAll();
+        List<User> users = userDao.selectAll();
         System.out.println("*------SELECT ALL USERS------*");
         for(User u : users){
             System.out.println(u.toString());
         }
         System.out.println();
         //endregion
+
+        /*
 
         //region select id
         System.out.println("*------SELECT ID 2------*");
@@ -36,7 +37,7 @@ public class DaoUserTest {
 
         //region select id
         System.out.println("*------SELECT ID 5------*");
-        francois = userDao.select(5);
+        francois = userDao.select(4);
         System.out.println(francois);
         System.out.println();
         //endregion
@@ -68,5 +69,7 @@ public class DaoUserTest {
         }
         System.out.println();
         //endregion
+
+        */
     }
 }

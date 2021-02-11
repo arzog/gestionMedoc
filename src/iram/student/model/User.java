@@ -1,8 +1,11 @@
 package iram.student.model;
 
+import iram.student.enums.RoleUser;
+
 public class User {
     //region variable
     private int id;
+    private RoleUser role;
     private String username;
     private String pswd;
     private String mail;
@@ -10,8 +13,18 @@ public class User {
     //endregion
 
     //region constructor
-    public User(int id, String username, String pswd, String mail, int lienClient) {
+
+    public User(int id, RoleUser role, String username, String pswd, String mail, int lienClient) {
         this.id = id;
+        this.role = role;
+        this.username = username;
+        this.pswd = pswd;
+        this.mail = mail;
+        this.lienClient = lienClient;
+    }
+
+    public User(RoleUser role, String username, String pswd, String mail, int lienClient) {
+        this.role = role;
         this.username = username;
         this.pswd = pswd;
         this.mail = mail;
@@ -24,6 +37,7 @@ public class User {
         this.mail = mail;
         this.lienClient = lienClient;
     }
+
     //endregion
 
     //region getter
@@ -61,12 +75,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User => " +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", pswd='" + pswd + '\'' +
-                ", mail='" + mail + '\'' +
-                ", lienClient=" + lienClient +
+                "|| role=" + role +
+                "|| username='" + username + '\'' +
+                "|| pswd='" + pswd + '\'' +
+                "|| mail='" + mail + '\'' +
+                "|| lienClient=" + lienClient +
                 '}';
     }
 }

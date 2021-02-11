@@ -14,7 +14,7 @@ public class DaoClientTest {
     private static List<Client> clients = new ArrayList<>();
 
     public static void testDaoClient(){
-
+        /*
         //region insert
         System.out.println();
         client.insert(ourebi);
@@ -50,8 +50,7 @@ public class DaoClientTest {
             System.out.println(c.toString());
         }
         //endregion
-
+        */
+        System.out.println(client.lastID());
     }
-
-
 }

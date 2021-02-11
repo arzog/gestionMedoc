@@ -1,8 +1,5 @@
 package iram.student.model;
 
-import iram.student.enums.TypeMedic;
-import iram.student.enums.UniteMedic;
-
 public class Medicament {
     //region variable
     private int id;
@@ -10,12 +7,13 @@ public class Medicament {
     private int concentration;
     private double prix;
     private int quantite_boite;
-    private UniteMedic unite; // <-- change to ENUM
-    private TypeMedic type; // <-- change to ENUM
+    private String unite; // <-- change to ENUM
+    private String type; // <-- change to ENUM
     private String urlDoc;
     //endregion
 
-    public Medicament(int id, String nom, int concentration, double prix, int quantite_boite, UniteMedic unite, TypeMedic type, String urlDoc) {
+    //region constructeurs
+    public Medicament(int id, String nom, int concentration, double prix, int quantite_boite, String unite, String type, String urlDoc) {
         this.id = id;
         this.nom = nom;
         this.concentration = concentration;
@@ -25,6 +23,17 @@ public class Medicament {
         this.type = type;
         this.urlDoc = urlDoc;
     }
+
+    public Medicament(String nom, int concentration, double prix, int quantite_boite, String unite, String type, String urlDoc) {
+        this.nom = nom;
+        this.concentration = concentration;
+        this.prix = prix;
+        this.quantite_boite = quantite_boite;
+        this.unite = unite;
+        this.type = type;
+        this.urlDoc = urlDoc;
+    }
+    //endregion
 
     //region getter
     public int getId() {
@@ -42,10 +51,10 @@ public class Medicament {
     public int getQuantite_boite() {
         return quantite_boite;
     }
-    public UniteMedic getUnite() {
+    public String getUnite() {
         return unite;
     }
-    public TypeMedic getType() {
+    public String getType() {
         return type;
     }
     public String getUrlDoc() {
@@ -66,14 +75,28 @@ public class Medicament {
     public void setQuantite_boite(int quantite_boite) {
         this.quantite_boite = quantite_boite;
     }
-    public void setUnite(UniteMedic unite) {
+    public void setUnite(String unite) {
         this.unite = unite;
     }
-    public void setType(TypeMedic type) {
+    public void setType(String type) {
         this.type = type;
     }
     public void setUrlDoc(String urlDoc) {
         this.urlDoc = urlDoc;
     }
     //endregion
+
+    @Override
+    public String toString() {
+        return "Medicament{" +
+                "//id=" + id +
+                "|| nom='" + nom + '\'' +
+                "|| concentration=" + concentration +
+                "|| prix=" + prix +
+                "|| quantite_boite=" + quantite_boite +
+                "|| unite=" + unite +
+                "|| type=" + type +
+                "|| urlDoc='" + urlDoc + '\'' +
+                '}';
+    }
 }

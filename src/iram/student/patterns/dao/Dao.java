@@ -1,6 +1,8 @@
 package iram.student.patterns.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public abstract class Dao<T> {
@@ -15,4 +17,5 @@ public abstract class Dao<T> {
     public abstract boolean delete(T t);
     public abstract T select(int id);
     public abstract List<T> selectAll();
+    public abstract int lastID();
 }

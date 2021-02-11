@@ -83,7 +83,7 @@ public class DaoClient extends Dao<Client> {
     public boolean delete(Client client) {
         try{
             PreparedStatement statement = conn.prepareStatement(
-                    "delete from client where id = ?;"
+                    "update client set actif = 0 where id = ?;"
             );
             statement.setInt(1,client.getId());
             statement.executeUpdate();
@@ -148,5 +148,22 @@ public class DaoClient extends Dao<Client> {
             throwables.printStackTrace();
         }
         return clients;
+    }
+
+    @Override
+    public int lastID() {
+        int lastId;
+        try{
+            PreparedStatement statement = conn.prepareStatement(
+                    "select max(id) as maxi from client;");
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                lastId = set.getInt("maxi");
+                return lastId;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
     }
 }

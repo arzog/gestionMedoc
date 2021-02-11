@@ -1,5 +1,6 @@
 package iram.student.patterns.dao.impl;
 
+import iram.student.enums.RoleUser;
 import iram.student.patterns.dao.Dao;
 import iram.student.model.User;
 
@@ -82,9 +83,16 @@ public class DaoUser extends Dao<User> {
                             "where id = ?;");
             statement.setInt(1,id);
             ResultSet set = statement.executeQuery();
+            RoleUser role;
             while (set.next()){
+                if(set.getString("role").equals("USER")){
+                    role = RoleUser.USER;
+                }else {
+                    role = RoleUser.ADMIN;
+                }
                 u = new User(
                         set.getInt("id"),
+                        role,
                         set.getString("username"),
                         set.getString("password"),
                         set.getString("mail"),
@@ -105,9 +113,16 @@ public class DaoUser extends Dao<User> {
         try{
             PreparedStatement statement = conn.prepareStatement("select * from utilisateur");
             ResultSet set = statement.executeQuery();
+            RoleUser role;
             while(set.next()){
+                if(set.getString("role").equals("USER")){
+                    role = RoleUser.USER;
+                }else {
+                    role = RoleUser.ADMIN;
+                }
                 users.add(new User(
                         set.getInt("id"),
+                        role,
                         set.getString("username"),
                         set.getString("password"),
                         set.getString("mail"),
@@ -120,5 +135,22 @@ public class DaoUser extends Dao<User> {
             throwables.printStackTrace();
         }
         return users;
+    }
+
+    @Override
+    public int lastID() {
+        int lastId;
+        try{
+            PreparedStatement statement = conn.prepareStatement(
+                    "select max(id) as maxi from utilisateur;");
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                lastId = set.getInt("maxi");
+                return lastId;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
     }
 }

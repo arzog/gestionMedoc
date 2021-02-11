@@ -11,7 +11,7 @@ public class Main {
         //DBConnexion.getInstance();
 
         //Tests Dao client
-        //DaoClientTest.testDaoClient();
+        DaoClientTest.testDaoClient();
 
         //Tests Dao user
         //DaoUserTest.testUserDao();
