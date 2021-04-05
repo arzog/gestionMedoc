@@ -7,17 +7,19 @@ import iram.student.patterns.singleton.DBConnexion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ClientController {
 
     //region variables
     ObservableList<Client> observableList;
-
+    DaoClient dao = new DaoClient(DBConnexion.getInstance());
     @FXML
     private TableView<Client> clientTable;
     @FXML
@@ -25,6 +27,8 @@ public class ClientController {
     @FXML
     private TableColumn<Client,String> lastNameColumn;
 
+    @FXML
+    private Label idLabel;
     @FXML
     private Label firstNameLabel;
     @FXML
@@ -43,8 +47,10 @@ public class ClientController {
 
     @FXML
     private void initialize(){
-        DaoClient dao = new DaoClient(DBConnexion.getInstance());
-        List<Client> clients = dao.selectAll();
+        List<Client> clients = dao.selectAll()
+                .stream()
+                .filter(c -> c.isActif())
+                .collect(Collectors.toList());
         observableList = FXCollections.observableArrayList(clients);
 
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
@@ -61,9 +67,27 @@ public class ClientController {
         );
     }
 
+    @FXML
+    private void handleDeleteClient(){
+        int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            dao.delete(clientTable.getItems().get(selectedIndex));
+            initialize();
+        }else {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No selection");
+            alert.setHeaderText("No Client selected");
+            alert.setContentText("Please select a client in the table");
+
+            alert.showAndWait();
+        }
+    }
+
     private void showClientDetails(Client client){
         if(client != null){
             //fill labels
+            idLabel.setText(String.valueOf(client.getId()));
             firstNameLabel.setText(client.getNom());
             lastNameLabel.setText(client.getPrenom());
             landLabel.setText(client.getPays());
@@ -72,6 +96,7 @@ public class ClientController {
             numberLabel.setText(client.getNum());
             cpLabel.setText(String.valueOf(client.getCp()));
         }else {
+            idLabel.setText("lorem ipsum");
             firstNameLabel.setText("lorem ipsum");
             lastNameLabel.setText("lorem ipsum");
             landLabel.setText("lorem ipsum");

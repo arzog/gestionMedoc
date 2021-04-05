@@ -21,10 +21,10 @@ public class Client {
     //region constructor
     public Client(int id, String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
         this.id = id;
-        this.nom = new SimpleStringProperty(nom);
-        this.prenom = new SimpleStringProperty(prenom);
-        this.pays = new SimpleStringProperty(pays);
-        this.ville = new SimpleStringProperty(ville);
+        this.nom = new SimpleStringProperty(nom.substring(0,1).toUpperCase()+nom.substring(1));
+        this.prenom = new SimpleStringProperty(prenom.substring(0,1).toUpperCase()+prenom.substring(1));
+        this.pays = new SimpleStringProperty(pays.substring(0,1).toUpperCase()+pays.substring(1));
+        this.ville = new SimpleStringProperty(ville.substring(0,1).toUpperCase()+ville.substring(1));
         this.rue = new SimpleStringProperty(rue);
         this.num = new SimpleStringProperty(num);
         this.cp = new SimpleIntegerProperty(cp);
@@ -32,10 +32,10 @@ public class Client {
     }
 
     public Client(String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
-        this.nom = new SimpleStringProperty(nom);
-        this.prenom = new SimpleStringProperty(prenom);
-        this.pays = new SimpleStringProperty(pays);
-        this.ville = new SimpleStringProperty(ville);
+        this.nom = new SimpleStringProperty(nom.substring(0,1).toUpperCase()+nom.substring(1));
+        this.prenom = new SimpleStringProperty(prenom.substring(0,1).toUpperCase()+prenom.substring(1));
+        this.pays = new SimpleStringProperty(pays.substring(0,1).toUpperCase()+pays.substring(1));
+        this.ville = new SimpleStringProperty(ville.substring(0,1).toUpperCase()+ville.substring(1));
         this.rue = new SimpleStringProperty(rue);
         this.num = new SimpleStringProperty(num);
         this.cp = new SimpleIntegerProperty(cp);
