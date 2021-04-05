@@ -15,6 +15,7 @@ import java.util.List;
 
 public class ClientController {
 
+    //region variables
     ObservableList<Client> observableList;
 
     @FXML
@@ -38,8 +39,7 @@ public class ClientController {
     private Label numberLabel;
     @FXML
     private Label cpLabel;
-
-    private Main main;
+    //endregion
 
     @FXML
     private void initialize(){
@@ -50,11 +50,35 @@ public class ClientController {
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
 
-        setMain();
+        clientTable.setItems(observableList);
+
+        //clear person details
+        showClientDetails(null);
+
+        //listen for selection changes and show the person details when changed
+        clientTable.getSelectionModel().selectedItemProperty().addListener(
+                ((observable, oldValue, newValue) -> showClientDetails(newValue))
+        );
     }
 
-    public void  setMain(/*Main main*/){
-//        this.main = main;
-        clientTable.setItems(observableList);
+    private void showClientDetails(Client client){
+        if(client != null){
+            //fill labels
+            firstNameLabel.setText(client.getNom());
+            lastNameLabel.setText(client.getPrenom());
+            landLabel.setText(client.getPays());
+            cityLabel.setText(client.getVille());
+            streetLabel.setText(client.getRue());
+            numberLabel.setText(client.getNum());
+            cpLabel.setText(String.valueOf(client.getCp()));
+        }else {
+            firstNameLabel.setText("lorem ipsum");
+            lastNameLabel.setText("lorem ipsum");
+            landLabel.setText("lorem ipsum");
+            cityLabel.setText("lorem ipsum");
+            streetLabel.setText("lorem ipsum");
+            numberLabel.setText("lorem ipsum");
+            cpLabel.setText("lorem ipsum");
+        }
     }
 }

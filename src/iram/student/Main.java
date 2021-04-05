@@ -57,8 +57,6 @@ public class Main extends Application {
 
             rootLayout.setCenter(connexion);
 
-//            ClientController controller = new ClientController();
-//            controller.setMain();
         } catch (IOException e) {
             e.printStackTrace();
         }

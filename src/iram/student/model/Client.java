@@ -27,7 +27,7 @@ public class Client {
         this.ville = new SimpleStringProperty(ville);
         this.rue = new SimpleStringProperty(rue);
         this.num = new SimpleStringProperty(num);
-        this.cp = new SimpleIntegerProperty(4);
+        this.cp = new SimpleIntegerProperty(cp);
         this.actif = actif;
     }
 
@@ -38,7 +38,7 @@ public class Client {
         this.ville = new SimpleStringProperty(ville);
         this.rue = new SimpleStringProperty(rue);
         this.num = new SimpleStringProperty(num);
-        this.cp = new SimpleIntegerProperty(4);
+        this.cp = new SimpleIntegerProperty(cp);
         this.actif = actif;
     }
     //endregion
