@@ -25,7 +25,5 @@ public class Factory {
     public static Dao<Facture> getDaoFacture(){
         return new DaoFacture(conn);
     }
-    public static Dao<Medicament> getDaoMedicament(){
-        return new DaoMedicament(conn);
-    }
+
 }
