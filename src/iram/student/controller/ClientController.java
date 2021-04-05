@@ -49,7 +49,7 @@ public class ClientController {
     private void initialize(){
         List<Client> clients = dao.selectAll()
                 .stream()
-                .filter(c -> c.isActif())
+                .filter(Client::isActif)
                 .collect(Collectors.toList());
         observableList = FXCollections.observableArrayList(clients);
 
