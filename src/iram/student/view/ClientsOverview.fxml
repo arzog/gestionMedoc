@@ -67,8 +67,8 @@
                   </GridPane>
                   <ButtonBar layoutX="138.0" layoutY="344.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="New ..." />
-                      <Button mnemonicParsing="false" text="Edit ..." />
+                      <Button mnemonicParsing="false" onAction="#handleNewClient" text="New ..." />
+                      <Button mnemonicParsing="false" onAction="#handleEditClient" text="Edit ..." />
                       <Button mnemonicParsing="false" onAction="#handleDeleteClient" text="Delete" />
                     </buttons>
                   </ButtonBar>

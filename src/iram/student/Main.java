@@ -56,7 +56,6 @@ public class Main extends Application {
             AnchorPane connexion = loader.load();
 
             rootLayout.setCenter(connexion);
-
         } catch (IOException e) {
             e.printStackTrace();
         }

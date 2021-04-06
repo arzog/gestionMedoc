@@ -19,6 +19,19 @@ public class Client {
     //endregion
 
     //region constructor
+
+
+    public Client() {
+        this.nom = new SimpleStringProperty("last name");
+        this.prenom = new SimpleStringProperty("first name");
+        this.pays = new SimpleStringProperty("land");
+        this.ville = new SimpleStringProperty("city");
+        this.rue = new SimpleStringProperty("street");
+        this.num = new SimpleStringProperty("house number");
+        this.cp = new SimpleIntegerProperty(0);
+        this.actif = actif;
+    }
+
     public Client(int id, String nom, String prenom, String pays, String ville, String rue, String num, int cp, boolean actif) {
         this.id = id;
         this.nom = new SimpleStringProperty(nom.substring(0,1).toUpperCase()+nom.substring(1));

@@ -26,26 +26,26 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="First name : " GridPane.rowIndex="1" />
-            <Label text="Postal code : " GridPane.rowIndex="6" />
-            <Label text="House number :" GridPane.rowIndex="5" />
-            <Label text="Street : " GridPane.rowIndex="4" />
-            <Label text="Land : " GridPane.rowIndex="2" />
-            <Label text="City :" GridPane.rowIndex="3" />
-            <Label text="Last name : " />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+             <Label text="Last name : " />
+             <Label text="First name : " GridPane.rowIndex="1" />
+             <Label text="Land : " GridPane.rowIndex="2" />
+             <Label text="City :" GridPane.rowIndex="3" />
+             <Label text="Street : " GridPane.rowIndex="4" />
+             <Label text="House number :" GridPane.rowIndex="5" />
+             <Label text="Postal code : " GridPane.rowIndex="6" />
+             <TextField fx:id="lastNameField" GridPane.columnIndex="1" />
+             <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+             <TextField fx:id="landField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+             <TextField fx:id="cityField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+             <TextField fx:id="streetField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+             <TextField fx:id="numberField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+             <TextField fx:id="cpField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <ButtonBar layoutX="386.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
         <buttons>
-            <Button alignment="CENTER" mnemonicParsing="false" text="Button" />
-          <Button alignment="CENTER" mnemonicParsing="false" text="Button" />
+          <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOk" text="ok" />
+          <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleCancel" text="cancel" />
         </buttons>
       </ButtonBar>
    </children>
