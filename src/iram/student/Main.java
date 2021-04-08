@@ -1,6 +1,7 @@
 package iram.student;
 
 import iram.student.controller.ClientController;
+import iram.student.controller.ConnectionController;
 import iram.student.model.Client;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -9,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,7 +31,8 @@ public class Main extends Application {
         this.primaryStage.setTitle("Affichage clients");
 
         initRootLayoout();
-        showClientsScreen();
+//        showClientsScreen();
+        showConnecionScreen();
     }
 
     public void initRootLayoout(){
@@ -49,13 +52,18 @@ public class Main extends Application {
         }
     }
 
-    public void showClientsScreen(){
-        try{
+
+
+    public void showConnecionScreen(){
+        try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("/iram/student/view/ClientsOverview.fxml"));
+            loader.setLocation(Main.class.getResource("/iram/student/view/ConnectionView.fxml"));
             AnchorPane connexion = loader.load();
 
             rootLayout.setCenter(connexion);
+
+            ConnectionController controller = loader.getController();
+            controller.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
         }

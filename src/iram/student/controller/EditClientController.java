@@ -71,7 +71,6 @@ public class EditClientController {
 
     @FXML
     private void handleCancel(){
-        System.out.println(dialogStage.getTitle());
         dialogStage.close();
     }
 

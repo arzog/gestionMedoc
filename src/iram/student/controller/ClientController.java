@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -25,7 +26,8 @@ public class ClientController {
 
     //region variables
     ObservableList<Client> observableList;
-    DaoClient dao = new DaoClient(DBConnexion.getInstance());
+    private DaoClient dao = new DaoClient(DBConnexion.getInstance());
+
     @FXML
     private TableView<Client> clientTable;
     @FXML
@@ -113,10 +115,25 @@ public class ClientController {
         }else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No selection");
-            alert.setHeaderText("No person selected");
+            alert.setHeaderText("No client selected");
             alert.setContentText("Please select a person in the table");
 
             alert.showAndWait();
+        }
+    }
+
+    public void showClientsScreen(Main main){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("/iram/student/view/ClientsOverview.fxml"));
+            AnchorPane clientView = loader.load();
+
+            Stage stage = main.getPrimaryStage();
+            Scene scene = new Scene(clientView);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

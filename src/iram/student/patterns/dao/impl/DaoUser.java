@@ -107,6 +107,39 @@ public class DaoUser extends Dao<User> {
 
         return u;
     }
+    public User select(String username,String pswd){
+        User u = null;
+        try {
+            PreparedStatement statement = conn.prepareStatement(
+                    "select * from utilisateur " +
+                            "where username like ? AND password like ? ;");
+            statement.setString(1,username);
+            statement.setString(2,pswd);
+            ResultSet set = statement.executeQuery();
+            RoleUser role;
+            while (set.next()){
+                if(set.getString("role").equals("USER")){
+                    role = RoleUser.USER;
+                }else {
+                    role = RoleUser.ADMIN;
+                }
+                u = new User(
+                        set.getInt("id"),
+                        role,
+                        set.getString("username"),
+                        set.getString("password"),
+                        set.getString("mail"),
+                        set.getInt("id_client")
+                );
+            }
+            set.close();
+            statement.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return u;
+    }
     @Override
     public List<User> selectAll() {
         List<User> users = new ArrayList<>();
@@ -136,7 +169,6 @@ public class DaoUser extends Dao<User> {
         }
         return users;
     }
-
     @Override
     public int lastID() {
         int lastId;

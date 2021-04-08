@@ -25,17 +25,18 @@ public class DaoClient extends Dao<Client> {
         }
         try{
             PreparedStatement statement = conn.prepareStatement(
-                    "insert into client(nom,prenom,pays,ville,rue,num,cp,actif) " +
-                            "values (?,?,?,?,?,?,?,?);"
+                    "insert into client(id,nom,prenom,pays,ville,rue,num,cp,actif) " +
+                            "values (?,?,?,?,?,?,?,?,?);"
             );
-            statement.setString(1,client.getNom());
-            statement.setString(2,client.getPrenom());
-            statement.setString(3,client.getPays());
-            statement.setString(4,client.getVille());
-            statement.setString(5,client.getRue());
-            statement.setString(6,client.getNum());
-            statement.setInt(7,client.getCp());
-            statement.setInt(8,actif);
+            statement.setInt(1,lastID()+1);
+            statement.setString(2,client.getNom());
+            statement.setString(3,client.getPrenom());
+            statement.setString(4,client.getPays());
+            statement.setString(5,client.getVille());
+            statement.setString(6,client.getRue());
+            statement.setString(7,client.getNum());
+            statement.setInt(8,client.getCp());
+            statement.setInt(9,actif);
 
             statement.executeUpdate();
             statement.close();

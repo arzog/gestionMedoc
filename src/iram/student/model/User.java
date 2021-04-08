@@ -13,7 +13,10 @@ public class User {
     //endregion
 
     //region constructor
-
+    public User(String username, String pswd) {
+        this.username = username;
+        this.pswd = pswd;
+    }
     public User(int id, RoleUser role, String username, String pswd, String mail, int lienClient) {
         this.id = id;
         this.role = role;
@@ -22,7 +25,6 @@ public class User {
         this.mail = mail;
         this.lienClient = lienClient;
     }
-
     public User(RoleUser role, String username, String pswd, String mail, int lienClient) {
         this.role = role;
         this.username = username;
@@ -30,14 +32,15 @@ public class User {
         this.mail = mail;
         this.lienClient = lienClient;
     }
-
     public User(String username, String pswd, String mail, int lienClient) {
         this.username = username;
         this.pswd = pswd;
         this.mail = mail;
         this.lienClient = lienClient;
     }
+    public User() {
 
+    }
     //endregion
 
     //region getter
