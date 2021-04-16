@@ -1,7 +1,6 @@
 package iram.student.controller;
 
 import iram.student.Main;
-import iram.student.model.Client;
 import iram.student.model.User;
 import iram.student.patterns.dao.impl.DaoUser;
 import iram.student.patterns.singleton.DBConnexion;
@@ -21,7 +20,7 @@ import java.io.IOException;
 public class ConnectionController {
 
     //region variables
-    private DaoUser dao = new DaoUser(DBConnexion.getInstance());
+    private final DaoUser dao = new DaoUser(DBConnexion.getInstance());
     private Main main;
 
     @FXML
@@ -51,8 +50,8 @@ public class ConnectionController {
             User user = dao.select(userTextField.getText(), pswdTextField.getText());
 
             if (user != null){
-                ClientController controller = new ClientController();
-                controller.showClientsScreen(main);
+                HomeController controller = new HomeController();
+                controller.showHome(main);
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Mauvais identifiants");

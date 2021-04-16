@@ -24,9 +24,7 @@ import java.util.stream.Collectors;
 
 public class ClientController {
 
-    //region variables
-    ObservableList<Client> observableList;
-    private DaoClient dao = new DaoClient(DBConnexion.getInstance());
+    private final DaoClient dao = new DaoClient(DBConnexion.getInstance());
 
     @FXML
     private TableView<Client> clientTable;
@@ -59,7 +57,8 @@ public class ClientController {
                 .stream()
                 .filter(Client::isActif)
                 .collect(Collectors.toList());
-        observableList = FXCollections.observableArrayList(clients);
+        //region variables
+        ObservableList<Client> observableList = FXCollections.observableArrayList(clients);
 
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
@@ -128,7 +127,7 @@ public class ClientController {
             loader.setLocation(Main.class.getResource("/iram/student/view/ClientsOverview.fxml"));
             AnchorPane clientView = loader.load();
 
-            Stage stage = main.getPrimaryStage();
+            Stage stage = Main.primaryStage;
             Scene scene = new Scene(clientView);
             stage.setScene(scene);
             stage.show();

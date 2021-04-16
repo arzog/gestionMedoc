@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-    private Stage primaryStage;
+    public static Stage primaryStage;
     private BorderPane rootLayout;
     private ObservableList<Client> clientData = FXCollections.observableArrayList();
 
@@ -28,14 +28,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Affichage clients");
 
         initRootLayoout();
-//        showClientsScreen();
         showConnecionScreen();
     }
 
-    public void initRootLayoout(){
+    private void initRootLayoout(){
         try {
 
             //load root
@@ -53,8 +51,7 @@ public class Main extends Application {
     }
 
 
-
-    public void showConnecionScreen(){
+    private void showConnecionScreen(){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("/iram/student/view/ConnectionView.fxml"));
@@ -69,9 +66,6 @@ public class Main extends Application {
         }
     }
 
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
 
     public ObservableList<Client> getClientData(){
         return clientData;
